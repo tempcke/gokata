@@ -1,4 +1,4 @@
-package string_calculator
+package main
 
 import (
 	"strconv"
@@ -43,7 +43,7 @@ func str2slice(input string, delim []string) []int {
 		tok += char
 		for _, d := range delim {
 			if strings.HasSuffix(tok, d) {
-				strNum := tok[0:len(tok)-len(d)]
+				strNum := tok[0 : len(tok)-len(d)]
 				n, _ := str2int(strNum)
 				result = append(result, n)
 				tok = ""
@@ -90,7 +90,7 @@ func inputAndDelim(input string) (string, []string) {
 	delim := detectDelims(input)
 
 	if strings.HasPrefix(input, "//") {
-		input = input[strings.Index(input,"\n")+1:]
+		input = input[strings.Index(input, "\n")+1:]
 	}
 
 	return input, delim
@@ -100,19 +100,19 @@ func detectDelims(input string) []string {
 	var d string
 	var delims []string
 	if strings.HasPrefix(input, "//") {
-		nlPos := strings.Index(input,"\n")
+		nlPos := strings.Index(input, "\n")
 		substr := input[2:nlPos]
-		if !strings.HasPrefix(substr,"[") {
+		if !strings.HasPrefix(substr, "[") {
 			return []string{substr}
 		}
 		for _, c := range substr {
 			char := string(c)
-			switch (char) {
-			case "[" :
+			switch char {
+			case "[":
 				d = ""
-			case "]" :
+			case "]":
 				delims = append(delims, d)
-			default :
+			default:
 				d += char
 			}
 		}

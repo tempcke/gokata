@@ -1,8 +1,9 @@
-package string_calculator
+package main
 
 import (
-	"gotest.tools/assert"
 	"testing"
+
+	"gotest.tools/assert"
 )
 
 type requirement struct {
