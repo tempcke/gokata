@@ -34,3 +34,9 @@ func checkRequirement(t *testing.T, req requirement) {
 			result)
 	}
 }
+
+func BenchmarkMumbleLetters(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		mumbleLetters("abcdefghijklmnopqrstuvwxyz")
+	}
+}

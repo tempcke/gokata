@@ -1,6 +1,8 @@
 package mumbleing
 
-import "strings"
+import (
+	"strings"
+)
 
 func mumbleLetters(input string) string {
 	result := ""
